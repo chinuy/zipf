@@ -10,7 +10,7 @@ func TestFixture(t *testing.T) {
 	r := rand.New(rand.NewSource(0))
 	z := NewZipf(r, 10, 1.0)
 	for i := 0; i < 10; i++ {
-		if fixture[i] != z.next() {
+		if fixture[i] != z.Next() {
 			t.Errorf("fixture mismatch")
 		}
 	}

@@ -46,7 +46,7 @@ type Zipf struct {
 	rng *rand.Rand
 }
 
-func (z *Zipf) next() int {
+func (z *Zipf) Next() int {
 	u := z.rng.Float64()
 	for i := 0; i < len(z.prob); i++ {
 		if u < z.prob[i] {

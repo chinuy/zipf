@@ -12,10 +12,11 @@ The generator will random produce a number in range of [0, n-1].
 # Usage
 
 ```go
+// import "github.com/chinuy/zipf"
 r := rand.New(rand.NewSource(time.Now().UTC().UnixNano()))
-z := NewZipf(r, 10, 1.0) // n = 10, alpha = 1.0
+z := zipf.NewZipf(r, 10, 1.0) // n = 10, alpha = 1.0
 for i := 0; i < 10; i++ {
-  randNumber := z.next()
+  randNumber := z.Next()
  // do something you want
 }
 ```
