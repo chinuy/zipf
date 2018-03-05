@@ -15,7 +15,7 @@ func NewZipf(r *rand.Rand, n int, alpha float64) *Zipf {
 	}
 
 	zeta := make([]float64, n+1)
-	z.distMap = make([]float64, n+1)
+	distMap := make([]float64, n+1)
 	z.prob = make([]float64, n)
 
 	zeta[0] = 0
@@ -24,16 +24,11 @@ func NewZipf(r *rand.Rand, n int, alpha float64) *Zipf {
 	}
 
 	for i := 0; i < n+1; i++ {
-		z.distMap[i] = zeta[i] / zeta[n]
+		distMap[i] = zeta[i] / zeta[n]
 	}
 
 	for i := 1; i < n+1; i++ {
-		z.prob[i-1] = z.distMap[i] - z.distMap[i-1]
-	}
-
-	s := 0.0
-	for i := 0; i < n; i++ {
-		s += z.prob[i]
+		z.prob[i-1] = distMap[i] - distMap[i-1]
 	}
 
 	return z
@@ -41,7 +36,6 @@ func NewZipf(r *rand.Rand, n int, alpha float64) *Zipf {
 
 type Zipf struct {
 	alpha float64
-	distMap []float64
 	prob []float64
 	rng *rand.Rand
 }
