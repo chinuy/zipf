@@ -1,4 +1,4 @@
-# zipf
+# zipf [![Build Status](https://travis-ci.org/chinuy/zipf.svg?branch=master)](https://travis-ci.org/chinuy/zipf)
 Generate random number distributed by Zipf's law
 
 # Motivation
