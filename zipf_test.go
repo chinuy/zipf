@@ -25,9 +25,9 @@ func TestStatistic(t *testing.T) {
 	}
 
 	r := rand.New(rand.NewSource(0))
-	z := NewZipf(r, n, alpha)
+	z := NewZipf(r, alpha, uint64(n))
 	for i := 0; i < run; i++ {
-		m[z.Next()]++
+		m[int(z.Uint64())]++
 	}
 
 	for i := 0; i < n; i++ {
@@ -39,11 +39,11 @@ func TestStatistic(t *testing.T) {
 }
 
 func TestFixture(t *testing.T) {
-	fixture := []int{8,0,3,0,1,0,0,3,7,0}
+	fixture := []uint64{8,0,3,0,1,0,0,3,7,0}
 	r := rand.New(rand.NewSource(0))
-	z := NewZipf(r, 10, 1.0)
+	z := NewZipf(r, 1.0, 10)
 	for i := 0; i < 10; i++ {
-		if fixture[i] != z.Next() {
+		if fixture[i] != z.Uint64() {
 			t.Errorf("fixture mismatch")
 		}
 	}
