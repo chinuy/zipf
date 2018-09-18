@@ -1,13 +1,13 @@
 # zipf [![Build Status](https://travis-ci.org/chinuy/zipf.svg?branch=master)](https://travis-ci.org/chinuy/zipf)
-Generate random number distributed by Zipf's law
+Random number generator following Zipf's law
 
 # Motivation
 The [built-in package](https://golang.org/pkg/math/rand/#Zipf) implementation doesn't support *alpha* < 1.0.
-Common is it that web traffic is model with *alpha < 1.0*.
+
 Referring to the answer in [here](https://stackoverflow.com/questions/1366984/generate-random-numbers-distributed-by-zipf/),
 here is a go version zipf generator.
 
-The generator will random produce a number in range of [0, n-1].
+The generator will randomly produce a number in the range of [0, n-1].
 
 # Usage
 
